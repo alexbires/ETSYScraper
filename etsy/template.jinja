@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ETSY Report</title>
+	</head>
+	<body>
+		<style>
+			.center {
+				margin:auto;
+				width: 50%
+			}
+			.center-text {
+				text-align: center
+			}
+			.imp-words {
+				margin-top: 10px;
+				margin-bottom: 10px;
+			}
+			.shop-container {
+				border-width: 2px 2px 2px 2px;
+				border-style: solid;
+				padding-top: 12px;
+				padding-left: 15px;
+			}
+		</style>
+		<div class="center">
+			<h1 class="center-text">ETSY Results</h1>
+			{% for shop in error_free_shops %}
+			<div class="shop-container">
+				<div class="shop-title">
+					Shop Name: {{shop.shop_name|e}}<br/>
+					Shop Id: {{shop.shop_id|e}}<br/>
+				</div><br/>
+				<div class="imp-words">
+					Important words:
+				</div>
+				<ul>
+					{% for word in shop.words_list %} 
+					<li>{{word|e}}</li>
+					{% endfor %}	
+				</ul>
+			</div>
+			{% endfor %}
+			{% if error_shops|length > 0%}
+			<br/>The following shops had errors retrieving them:<br/>
+			{% for shop in error_shops %}
+			<div class="shop-container">
+			
+				Shop ID: {{shop.error|e}}<br/>
+				Shop Name: {{shop.name|e}}<br/>
+				Error: {{shop.error|e}}
+			</div>
+			{% endfor %}
+			{% endif %}
+		</div>
+	</body>
+</html>
