@@ -8,8 +8,9 @@ class AlgorithmTest(unittest.TestCase):
     """
     Ensures that the algorithm is working properly
     """
-    
+
     def test_basic_output(self):
+        """Ensures that the lowest frequency words are going to be picked"""
         etsy1 = lis(
             "ab ab ab ab ac ac ac aa z q w e t amazing",
             "this a desc desc this other of amazing objects with other\
