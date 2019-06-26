@@ -39,6 +39,9 @@ class Algorithm:
 
         Calls the appropriate functions in order to process the data returned
         from the Etsy query.
+
+        @return: ShopAndWords object that contains the shop id and the five
+            most used words as a list.
         """
         self._combine_all_words()
         self._clean_data()
@@ -104,7 +107,7 @@ class Algorithm:
         """
         common_words = [
             "to", "the", "and", "but", "or", "with",
-            "a", "an", "shipping"]
+            "a", "an", "shipping", "of"]
         if word in common_words:
             return ""
         return word
@@ -114,7 +117,7 @@ class Algorithm:
         Creates the frequency dictionary structured as follows:
             word : number_of_occurances
 
-        @return list of words objects indicating the shop with its five most
+        @return a ShopAndWord object indicating the shop with its five most
                 important words
         """
         self.frequency_dict = Counter(self.all_text_list)

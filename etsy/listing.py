@@ -14,4 +14,5 @@ class Listing:
         self.shop_id = shop_id
 
     def str(self):
+        """returns a string representation of the object"""
         return "Title:" + self.title

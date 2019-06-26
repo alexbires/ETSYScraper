@@ -28,7 +28,6 @@
 			{% for shop in error_free_shops %}
 			<div class="shop-container">
 				<div class="shop-title">
-					Shop Name: {{shop.shop_name|e}}<br/>
 					Shop Id: {{shop.shop_id|e}}<br/>
 				</div><br/>
 				<div class="imp-words">
@@ -41,17 +40,6 @@
 				</ul>
 			</div>
 			{% endfor %}
-			{% if error_shops|length > 0%}
-			<br/>The following shops had errors retrieving them:<br/>
-			{% for shop in error_shops %}
-			<div class="shop-container">
-			
-				Shop ID: {{shop.error|e}}<br/>
-				Shop Name: {{shop.name|e}}<br/>
-				Error: {{shop.error|e}}
-			</div>
-			{% endfor %}
-			{% endif %}
 		</div>
 	</body>
 </html>
